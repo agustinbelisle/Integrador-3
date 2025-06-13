@@ -34,7 +34,7 @@ const About = () => {
 
       <h2>Contáctanos</h2>
       <p>
-        ¿Tenés consultas o querés saber más? Visitá nuestra página de <a href="/Contact">Contacto</a>. Estamos para ayudarte a encontrar la tecnología que necesitás.
+        ¿Tenés consultas o querés saber más? Visitá nuestra página de <a href="/contact">Contacto</a>. Estamos para ayudarte a encontrar la tecnología que necesitás.
       </p>
     </AboutContainer>
   );
