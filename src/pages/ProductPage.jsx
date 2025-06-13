@@ -27,6 +27,14 @@ const ProductPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (product) {
+      setMainImage(product.images[0]);
+      setQuantity(1); // opcional: reiniciar cantidad al cambiar de producto
+    }
+  }, [product]);
+
+
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
