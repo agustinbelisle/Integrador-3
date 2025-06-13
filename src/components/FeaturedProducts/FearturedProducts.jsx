@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
               image={
                 Array.isArray(product.images)
                   ? product.images[0]
-                  : product.image || "" // fallback por si algún producto antiguo tiene solo 'image'
+                  : product.image || "" 
               }
             />
           </div>

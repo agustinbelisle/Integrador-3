@@ -32,7 +32,7 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 1024px) {
     width: 320px;
-    margin: 0 auto 2rem auto; /* centrar y separar abajo */
+    margin: 0 auto 2rem auto; 
     padding: 20px 25px;
     background-color: #f9f9f9;
     border-radius: 12px;
@@ -81,7 +81,7 @@ export const CategoryLabelWrapper = styled.span`
   color: #555;
 
   @media (max-width: 1024px) {
-    width: 120px; /* Para que queden dos columnas con espacio */
+    width: 120px; 
     text-align: left;
   }
 `;

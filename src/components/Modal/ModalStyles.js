@@ -34,7 +34,7 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledField = styled(Field)`
-  width: 100%; // ✅ Esto hace que ocupe todo el ancho disponible
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -72,7 +72,7 @@ const SecondaryButton = styled(Button)`
   }
 `;
 
-// ✅ Exportar todo
+
 export {
   ModalOverlay,
   ModalContainer,

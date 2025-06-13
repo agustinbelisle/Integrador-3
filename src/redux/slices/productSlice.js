@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: [], // 🔥 Cambiado de `items` a `products` para mayor claridad
+  products: [], 
 };
 
 const productSlice = createSlice({

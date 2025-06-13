@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Leer desde localStorage
+
 const loadCartFromLocalStorage = () => {
   try {
     const storedCart = localStorage.getItem("cart");
@@ -11,7 +11,7 @@ const loadCartFromLocalStorage = () => {
   }
 };
 
-// Guardar en localStorage
+
 const saveCartToLocalStorage = (cartItems) => {
   try {
     localStorage.setItem("cart", JSON.stringify(cartItems));

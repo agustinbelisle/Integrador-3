@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { toast } from "react-toastify";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ProductPage = () => {
 
   const [mainImage, setMainImage] = useState(product.images[0]);
   const [quantity, setQuantity] = useState(1);
-
+  const [hoveredButton, setHoveredButton] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -31,35 +32,35 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product, quantity }));
+    toast.success(`${quantity} × ${product.name} agregado al carrito`, {
+      icon: "🛒",
+    });
   };
 
-  // Estilos para botones dorado y azul claro
   const buttonStyle = {
     cursor: "pointer",
     borderRadius: "6px",
     border: "none",
     fontWeight: "500",
-    transition: "background-color 0.3s ease",
+    transition: "background-color 0.3s ease, transform 0.2s ease",
   };
 
-  const qtyButtonStyle = {
+  const qtyButtonStyle = (isHovered) => ({
     ...buttonStyle,
-    backgroundColor: "#F6D365", // dorado claro
+    backgroundColor: isHovered ? "#f7c654" : "#F6D365",
     color: "#444",
     padding: "0.4rem 0.8rem",
     fontSize: "1.2rem",
-    userSelect: "none",
-  };
+  });
 
-  const addButtonStyle = {
+  const addButtonStyle = (isHovered) => ({
     ...buttonStyle,
-    backgroundColor: "#4A90E2", // azul claro
+    backgroundColor: isHovered ? "#357bd8" : "#4A90E2",
     color: "white",
     padding: "0.6rem 1.2rem",
     fontSize: "1rem",
-  };
+  });
 
-  // Layout condicional segun ancho
   const isMobile576 = windowWidth <= 576;
   const isTablet768 = windowWidth <= 768;
 
@@ -74,7 +75,6 @@ const ProductPage = () => {
         alignItems: isMobile576 ? "center" : "flex-start",
       }}
     >
-      {/* Miniaturas */}
       <div
         style={{
           display: "flex",
@@ -101,7 +101,6 @@ const ProductPage = () => {
         ))}
       </div>
 
-      {/* Imagen principal e info */}
       <div
         style={{
           flex: 1,
@@ -135,9 +134,30 @@ const ProductPage = () => {
           </SwiperSlide>
         </Swiper>
 
-        <h1 style={{ fontWeight: 500, fontSize: "1.9rem" }}>{product.name}</h1>
-        <p>{product.description}</p>
-        <p style={{ fontWeight: 500, fontSize: "1.5rem",color:" #007bff", margin: "20px 0 20px 0" }}>${product.price}</p>
+    <h1 style={{ fontWeight: 500, fontSize: "1.9rem" }}>{product.name}</h1>
+
+    <p
+      style={{
+        fontSize: "1.2rem",
+        color: "#666",
+        marginBottom: "2rem",
+        marginTop: "2rem",
+      }}
+    >
+      {product.description}
+    </p>
+
+    <p
+      style={{
+        fontWeight: 500,
+        fontSize: "1.5rem",
+        color: "#007bff",
+        marginBottom: "20px",
+      }}
+    >
+      ${product.price}
+    </p>
+
 
         <div
           style={{
@@ -153,13 +173,16 @@ const ProductPage = () => {
             onClick={handleDecrease}
             disabled={quantity <= 1}
             style={{
-              ...qtyButtonStyle,
+              ...qtyButtonStyle(hoveredButton === "decrease"),
               opacity: quantity <= 1 ? 0.5 : 1,
               pointerEvents: quantity <= 1 ? "none" : "auto",
             }}
+            onMouseEnter={() => setHoveredButton("decrease")}
+            onMouseLeave={() => setHoveredButton(null)}
           >
             −
           </button>
+
           <input
             type="number"
             readOnly
@@ -175,11 +198,22 @@ const ProductPage = () => {
               userSelect: "none",
             }}
           />
-          <button onClick={handleIncrease} style={qtyButtonStyle}>
+
+          <button
+            onClick={handleIncrease}
+            style={qtyButtonStyle(hoveredButton === "increase")}
+            onMouseEnter={() => setHoveredButton("increase")}
+            onMouseLeave={() => setHoveredButton(null)}
+          >
             +
           </button>
 
-          <button onClick={handleAddToCart} style={addButtonStyle}>
+          <button
+            onClick={handleAddToCart}
+            style={addButtonStyle(hoveredButton === "add")}
+            onMouseEnter={() => setHoveredButton("add")}
+            onMouseLeave={() => setHoveredButton(null)}
+          >
             Agregar al carrito
           </button>
         </div>

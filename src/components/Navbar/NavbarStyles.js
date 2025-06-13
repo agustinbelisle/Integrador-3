@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
-// Logo
+
 export const Logo = styled(Link)`
   font-size: 1.5rem;
   font-weight: bold;
@@ -18,7 +18,7 @@ export const Logo = styled(Link)`
   }
 `;
 
-// Contenedor de navbar principal
+
 export const NavContainer = styled.nav`
   position: fixed;
   top: 0;
@@ -38,7 +38,7 @@ export const NavContainer = styled.nav`
     justify-content: center;
     flex: 1;
 
-    /* Desktop styles: no transform, visible */
+
     @media (min-width: 992px) {
       transform: none !important;
       opacity: 1 !important;
@@ -50,7 +50,7 @@ export const NavContainer = styled.nav`
       transition: none !important;
     }
 
-    /* Mobile/tablet styles - use transform for collapse */
+
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;
@@ -94,7 +94,7 @@ export const NavContainer = styled.nav`
   @media (max-width: 992px) {
     flex-wrap: wrap;
 
-    /* Always display flex for children */
+
     .nav-links {
       display: flex;
       position: absolute;
@@ -130,7 +130,7 @@ export const NavContainer = styled.nav`
 
 
 
-// Botón de logout
+
 export const LogoutButton = styled.button`
   background: linear-gradient(135deg, rgba(240, 192, 64, 0.95), rgba(230, 185, 56, 0.95));
   border: none;
@@ -153,7 +153,7 @@ export const LogoutButton = styled.button`
   }
 `;
 
-// Botón del menú hamburguesa
+
 export const MenuButton = styled.button`
   font-size: 2rem;
   background: none;
@@ -166,7 +166,7 @@ export const MenuButton = styled.button`
   }
 `;
 
-// Buscador
+
 export const SearchWrapper = styled.div`
   position: relative;
   width: 250px;
@@ -259,7 +259,7 @@ export const SearchBar = styled.div`
 
 
 
-// Icono de búsqueda (mobile)
+
 export const SearchIconMobile = styled.div`
   display: none;
   cursor: pointer;
@@ -274,7 +274,7 @@ export const SearchIconMobile = styled.div`
   }
 `;
 
-// Resultados de búsqueda
+
 export const SearchResults = styled.div`
   position: absolute;
   top: 100%;
@@ -311,7 +311,6 @@ export const SearchResults = styled.div`
   }
 `;
 
-// Icono del carrito
 export const CartIcon = styled.div`
   position: relative;
   font-size: 1.5rem;
@@ -332,7 +331,7 @@ export const CartIcon = styled.div`
   }
 `;
 
-// Sidebar del carrito
+
 export const CartSidebar = styled.div`
   position: fixed;
   top: 0;
@@ -346,11 +345,11 @@ export const CartSidebar = styled.div`
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  transform: translateX(100%); /* Inicialmente fuera de la vista */
-  transition: transform 0.3s ease-in-out; /* Transición suave */
+  transform: translateX(100%); 
+  transition: transform 0.3s ease-in-out; 
 
   &.active {
-    transform: translateX(0); /* Mueve a la vista cuando está activo */
+    transform: translateX(0); 
   }
 
   h3 {
@@ -370,7 +369,7 @@ export const CartSidebar = styled.div`
   }
 `;
 
-// Overlay del carrito
+
 export const CartOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -382,7 +381,7 @@ export const CartOverlay = styled.div`
 `;
 
 
-// Dropdown de usuario (mobile)
+
 export const UserDropdownMobile = styled.div`
   position: relative;
   cursor: pointer;
@@ -442,7 +441,7 @@ export const UserDropdownMobile = styled.div`
   }
 `;
 
-// Dropdown del menú de categorías
+
 export const DropdownMenu = styled.div`
   position: absolute;
   top: 185%;
@@ -459,7 +458,7 @@ export const DropdownMenu = styled.div`
   flex-direction: column;
   border-top: 1px solid #f0c040;
 
-  /* Transición suave */
+
   opacity: 0;
   visibility: hidden;
   transform: translateX(-20px);
@@ -490,7 +489,7 @@ export const DropdownMenu = styled.div`
 `;
 
 
-// Ítems del dropdown
+
 export const DropdownItem = styled(NavLink)`
   color: white;
   text-decoration: none;
@@ -504,7 +503,7 @@ export const DropdownItem = styled(NavLink)`
 `;
 
 
-// Agregar esto al final de NavbarStyles.js (o donde sea apropiado)
+
 export const UserDesktop = styled.div`
   display: flex;
   align-items: center;

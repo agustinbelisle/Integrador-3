@@ -9,14 +9,14 @@ import {
 } from "./FooterStyles";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import Logo from "../Logo/Logo"; // ✅ Importamos el componente de logo
+import Logo from "../Logo/Logo"; 
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
         <FooterLogo>
-          <Logo /> {/* ✅ Usamos el componente Logo aquí */}
+          <Logo /> 
         </FooterLogo>
 
         <FooterLinksWrapper>

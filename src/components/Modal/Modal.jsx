@@ -1,10 +1,10 @@
-// src/components/Modal/AuthModal.jsx
+
 import { useEffect, useState } from "react";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { login, register, clearError } from "../../redux/slices/authSlice";
-import Logo from "../Logo/Logo"; // ✅ Importa el componente Logo correcto
+import Logo from "../Logo/Logo"; 
 import {
   ModalOverlay,
   ModalContainer,
@@ -43,7 +43,7 @@ const AuthModal = ({ onClose }) => {
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContainer onClick={(e) => e.stopPropagation()}>
-        <Logo /> {/* ✅ Logo dorado aplicado */}
+        <Logo /> 
 
         <Formik
           initialValues={initialValues}

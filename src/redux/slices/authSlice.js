@@ -1,4 +1,4 @@
-// src/redux/slices/authSlice.js
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const USER_DB_KEY = "users_db";

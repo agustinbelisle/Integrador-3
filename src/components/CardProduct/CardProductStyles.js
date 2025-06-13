@@ -34,13 +34,13 @@ export const Card = styled.div`
 
     h3 {
       font-size: 1.1rem;
-      font-weight: 500; /* Font weight para el nombre */
+      font-weight: 500;
       color: #333;
       margin-bottom: 8px;
     }
 
     span {
-      font-weight: 500; /* 👈 Font weight actualizado para el precio */
+      font-weight: 500; 
       font-size: 1.1rem;
       color: #007bff;
     }

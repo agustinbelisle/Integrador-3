@@ -1,4 +1,4 @@
-// src/components/Logo/Logo.jsx
+
 import { LogoLink, LogoText } from "./LogoStyles";
 
 const Logo = () => (

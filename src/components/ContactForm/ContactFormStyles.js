@@ -27,7 +27,7 @@ export const InputField = styled.input`
     box-shadow: 0 0 0 2px rgba(240, 192, 64, 0.2);
   }
 
-  /* Si es un textarea */
+  
   &[name="message"] {
     min-height: 120px;
     line-height: 1.5;

@@ -49,7 +49,7 @@ const Navbar = () => {
   const navRef = useRef(null);
   const searchRef = useRef(null);
 
-  // Detectar clic fuera del menú hamburguesa para cerrarlo
+
   useClickOutside(navRef, () => {
     if (isMenuActive("nav")) {
       console.log("Click fuera del menú hamburguesa, cerrando menú...");
@@ -57,7 +57,7 @@ const Navbar = () => {
     }
   });
 
-  // Detectar click fuera del dropdown Productos para cerrarlo
+
   useClickOutside(dropdownRef, () => {
     if (isMenuActive("dropdown")) {
       console.log("Click fuera del dropdown Productos, cerrando dropdown...");
@@ -65,7 +65,7 @@ const Navbar = () => {
     }
   });
 
-  // Detectar click fuera del dropdown usuario para cerrarlo
+
   useClickOutside(userDropdownRef, () => {
     if (showUserDropdown) {
       console.log("Click fuera del dropdown Usuario, cerrando dropdown...");
@@ -73,7 +73,7 @@ const Navbar = () => {
     }
   });
 
-  // Detectar click fuera del search para cerrarlo y limpiar resultados
+
   useClickOutside(searchRef, () => {
     if (searchOpen || searchResults.length > 0) {
       console.log("Click fuera del search, cerrando buscador y limpiando resultados...");
@@ -230,7 +230,7 @@ return (
 
         <CartIcon onClick={() => {
           setCartOpen(true);
-          setSearchOpen(false); // Cerrar search al abrir el carrito
+          setSearchOpen(false); 
           setSearchResults([]);
           setSearch('');
         }}>
@@ -256,7 +256,7 @@ return (
               <UserDropdownMobile>
                 <FaUser  className="user-icon" onClick={() => {
                   toggleUserDropdown();
-                  setSearchOpen(false); // Cerrar search al abrir el dropdown
+                  setSearchOpen(false); 
                   setSearchResults([]);
                   setSearch('');
                 }} />

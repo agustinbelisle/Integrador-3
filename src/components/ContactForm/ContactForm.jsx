@@ -28,14 +28,14 @@ const ContactForm = () => {
 
       try {
             const result = await emailjs.send(
-              "service_pmsn1hn",     // <- tu Service ID real
-              "template_lday5k1",    // <- tu Template ID real
+              "service_pmsn1hn",    
+              "template_lday5k1",    
               {
                 name: values.name,
                 email: values.email,
                 message: values.message,
               },
-              "C7edt88N64rDGoUOh"  // <- tu Public Key real
+              "C7edt88N64rDGoUOh"  
             );
 
         setSuccessMessage("¡Mensaje enviado con éxito!");

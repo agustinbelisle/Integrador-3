@@ -7,6 +7,8 @@ import {
   ProductInfo,
   PriceTag,
   InfoSection,
+  ViewMoreButton,
+  SlideWrapper
 } from "./ProductModalStyles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -15,45 +17,58 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductModal = ({ product, onClose }) => {
   if (!product) return null;
 
   const [mainImage, setMainImage] = useState(product.images[0]);
   const [quantity, setQuantity] = useState(1);
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product, quantity }));
+
+    toast.success(`${quantity} × ${product.name} agregado al carrito`, {
+      icon: "🛒",
+    });
+
     onClose();
   };
 
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
+  const handleViewMore = () => {
+    navigate(`/producto/${product.id}`);
+    onClose();
+  };
+
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
         <ModalClose onClick={onClose}>&times;</ModalClose>
 
-        {/* Swiper */}
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
           pagination={{ clickable: true }}
-          style={{ width: "100%", maxWidth: "400px", marginBottom: "1rem" }}
+          style={{
+            width: "100%",
+            maxWidth: "400px", 
+            height: "400px", 
+            marginBottom: "1rem",
+          }}
         >
-          <SwiperSlide>
-            <ProductImage
-              src={mainImage}
-              alt={product.name}
-              style={{ maxHeight: "400px", objectFit: "contain" }}
-            />
+          <SwiperSlide style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "400px" }}>
+            <SlideWrapper>
+              <ProductImage src={mainImage} alt={product.name} />
+            </SlideWrapper>
           </SwiperSlide>
         </Swiper>
 
-        {/* Miniaturas */}
         <div
           style={{
             display: "flex",
@@ -68,8 +83,8 @@ const ProductModal = ({ product, onClose }) => {
               key={i}
               src={img}
               alt={`Miniatura ${i + 1}`}
-              width={60}
-              height={60}
+              width={50} 
+              height={50} 
               onClick={() => setMainImage(img)}
               style={{
                 border: mainImage === img ? "2px solid black" : "1px solid gray",
@@ -81,10 +96,8 @@ const ProductModal = ({ product, onClose }) => {
           ))}
         </div>
 
-        {/* Info */}
         <ProductInfo>
           <h2>{product.name}</h2>
-          <p>{product.description}</p>
           <PriceTag>${product.price}</PriceTag>
 
           <InfoSection>
@@ -111,10 +124,13 @@ const ProductModal = ({ product, onClose }) => {
             <button onClick={handleAddToCart}>Agregar al carrito</button>
           </InfoSection>
         </ProductInfo>
+
+        <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <ViewMoreButton onClick={handleViewMore}>Ver más</ViewMoreButton>
+        </div>
       </ModalContent>
     </ModalOverlay>
   );
 };
 
 export default ProductModal;
-

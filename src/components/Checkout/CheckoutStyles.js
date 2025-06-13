@@ -193,8 +193,6 @@ export const ProductImage = styled.img`
 `;
 
 
-
-// NUEVO: Estilos responsivos para tipografía general en móviles
 export const ResponsiveText = createGlobalStyle`
   @media (max-width: 480px) {
     body {

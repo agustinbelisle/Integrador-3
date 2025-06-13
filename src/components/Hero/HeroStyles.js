@@ -7,7 +7,7 @@ export const HeroContainer = styled.section`
   padding: 0;
   color: white;
   text-align: center;
-    margin-top: 0.6rem; /* <-- agregá esta línea o modificá el valor */
+    margin-top: 0.6rem; 
 
   .swiper {
     width: 100%;
@@ -47,7 +47,7 @@ export const HeroContainer = styled.section`
   }
 
 button {
-  background-color: rgba(240, 192, 64, 0.85); /* Transparente */
+  background-color: rgba(240, 192, 64, 0.85); 
   color: #333;
   padding: 1.2rem 2.5rem;
   font-size: 1.3rem;

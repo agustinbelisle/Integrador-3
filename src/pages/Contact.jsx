@@ -58,13 +58,13 @@ const Contact = () => {
       <ContactForm />
       <InfoSection>
         <div>
-          <Mail size={20} /> contacto@tutienda.com
+          <Mail size={20} /> contacto@livestore.com
         </div>
         <div>
           <Phone size={20} /> +54 9 11 1234 5678
         </div>
         <div>
-          <MapPin size={20} /> Buenos Aires, Argentina
+          <MapPin size={20} /> La Rioja, Argentina
         </div>
       </InfoSection>
     </PageContainer>

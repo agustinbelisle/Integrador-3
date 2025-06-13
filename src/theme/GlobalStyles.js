@@ -1,8 +1,8 @@
-// src/styles/GlobalStyles.js
+
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  /* Reset margin and padding */
+
   *, *::before, *::after {
     margin: 0;
     padding: 0;

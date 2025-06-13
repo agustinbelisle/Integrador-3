@@ -111,7 +111,7 @@ export const ButtonsRow = styled.div`
 export const ClearCartButton = styled.button`
   flex: 1;
   padding: 12px 20px;
-  background-color: rgba(0, 123, 255, 0.85); /* Azul con transparencia */
+  background-color: rgba(0, 123, 255, 0.85); 
   color: white;
   border: none;
   font-weight: 400;
@@ -138,7 +138,7 @@ export const ClearCartButton = styled.button`
 export const CheckoutButton = styled.button`
   flex: 1;
   padding: 12px 20px;
-  background-color: rgba(240, 192, 64, 0.85); /* Dorado con transparencia */
+  background-color: rgba(240, 192, 64, 0.85); 
   color: #333;
   border: none;
   font-weight: 400;

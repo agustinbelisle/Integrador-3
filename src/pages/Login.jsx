@@ -3,11 +3,12 @@ import { useLocation } from "react-router-dom";
 
 const LoginPage = () => {
   const location = useLocation();
-  // Si viene de checkout, location.state?.from tendrá "/checkout"
+
   const from = location.state?.from || "/";
 
   return (
-    <div style={{ marginTop: "80px", display: "flex", justifyContent: "center" }}>
+    <div style={{ margin: "80px 0 130px 0", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <h2 style={{ marginBottom: "20px", fontWeight: "500" }}>Iniciar sesión</h2>
       <LoginForm from={from} />
     </div>
   );
